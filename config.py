@@ -1,16 +1,17 @@
-from pydantic import BaseSettings
+from os import getenv
+from dotenv import load_dotenv
 
 
-class Settings(BaseSettings):
-    EVERNOTE_CONSUMER_KEY: str
-    EVERNOTE_CONSUMER_SECRET: str
-    EVERNOTE_PERSONAL_TOKEN: str
+load_dotenv()
 
-    JOURNAL_TEMPLATE_NOTE_GUID: str
-    JOURNAL_NOTEBOOK_GUID: str
 
-    INBOX_NOTEBOOK_GUID: str
+class Settings():
+    EVERNOTE_CONSUMER_KEY = getenv('EVERNOTE_CONSUMER_KEY')
+    EVERNOTE_CONSUMER_SECRET = getenv('EVERNOTE_CONSUMER_SECRET')
+    EVERNOTE_PERSONAL_TOKEN = getenv('EVERNOTE_PERSONAL_TOKEN')
+
+    JOURNAL_TEMPLATE_NOTE_GUID = getenv('JOURNAL_TEMPLATE_NOTE_GUID')
+    JOURNAL_NOTEBOOK_GUID = getenv('JOURNAL_NOTEBOOK_GUID')
+
+    INBOX_NOTEBOOK_GUID = getenv('INBOX_NOTEBOOK_GUID')
     
-    class Config:
-        env_file = '.env'
-        env_file_encoding = 'utf-8'
