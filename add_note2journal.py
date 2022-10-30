@@ -1,4 +1,5 @@
 #!/usr/bin/env python 
+# -*- coding: utf-8 -*-
 from datetime import date, datetime, timedelta
 import argparse
 import json
@@ -40,10 +41,7 @@ if __name__ == '__main__':
 
     config = Settings()
 
-    client = EvernoteClient(
-        token=config.EVERNOTE_PERSONAL_TOKEN,
-        sandbox=False # Default: True
-    )
+    client = EvernoteClient(token=config.EVERNOTE_PERSONAL_TOKEN)
     noteStore = client.get_note_store()
 
     day = args.date or date.today()
